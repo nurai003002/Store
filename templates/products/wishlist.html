@@ -1,0 +1,129 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- start page-wrapper -->
+    <div class="page-wrapper">
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="vertical-centered-box">
+                <div class="content">
+                    <div class="loader-circle"></div>
+                    <div class="loader-line-mask">
+                        <div class="loader-line"></div>
+                    </div>
+                    <img src="{% static 'assets/images/preloader.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- end preloader -->
+        <!-- Start header -->
+        {% include 'include/header.html' %}
+
+        <!-- start wpo-page-title -->
+        <section class="wpo-page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="wpo-breadcumb-wrap">
+                            <h2>Избранные</h2>
+                            <ol>
+                                <li><a href="{% url 'index' %}">Главная</a></li>
+                                <li>Избранные</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div class="left-img">
+                <img src="{% static 'assets/images/pagetitle.png' %}" alt="">
+            </div>
+            <div class="right-img">
+                <div class="shape-1">
+                    <img src="{% static 'assets/images/shape-1.png' %}" alt="">
+                </div>
+                <div class="image">
+                    <img src="{{about.main_image.url}}" alt="">
+                </div>
+                <div class="shape-2">
+                    <img src="{% static 'assets/images/shape-2.png' %}" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- end page-title -->
+
+        <!-- cart-area start -->
+        <div class="cart-area section-padding">
+            <div class="container">
+                <div class="form">
+                    <div class="cart-wrapper">
+                        <div class="row">
+                            <div class="col-12">
+                                <form action="cart">
+                                    <table class="table-responsive cart-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="images images-b">Фото</th>
+                                                <th class="product-2">Название</th>
+                                                <th class="ptice">Цена</th>
+                                                <th class="stock">Статус запасов</th>
+                                                <th class="remove remove-b">Действие</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for wishlist_items in wishlist_items%}
+                                            <tr>
+                                                <td class="images"><img src="{{wishlist_items.image.url}}" alt=""></td>
+                                                <td class="product">
+                                                    <ul>
+                                                        <li class="first-cart">{{wishlist_items.title}}</li>
+                                                        
+                                                    </ul>
+                                                </td>
+                                                <td class="ptice">{{wishlist_items.price}}</td>
+                                                <td class="stock">In Stock</td>
+                                                <td class="action">
+                                                    <ul>
+                                                        <li class="c-btn"><a data-bs-toggle="tooltip"
+                                                                data-bs-html="true" title="" href="#"
+                                                                data-bs-original-title="Add to Cart"
+                                                                aria-label="Add to Cart"><i
+                                                                    class="fi flaticon-shopping-basket"></i></a></li>
+                                                        <li class="w-btn"><a data-bs-toggle="tooltip"
+                                                                data-bs-html="true" title="" href="#"
+                                                                data-bs-original-title="Remove from Cart"
+                                                                aria-label="Remove from Cart"><i
+                                                                    class="fi ti-trash"></i></a></li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <div class="submit-btn-area">
+                                    <ul>
+                                        <li><a class="theme-btn" href="checkout.html">Proceed to Checkout <i
+                                                    class="fa fa-angle-double-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cart-area end -->
+
+        <!-- start of wpo-site-footer-section -->
+        {% include 'include/footer.html' %}
+        <!-- end of wpo-site-footer-section -->
+
+
+    </div>
+    <!-- end of page-wrapper -->
+
+    <!-- All JavaScript files
+    ================================================== -->
+{% endblock %}

@@ -1,0 +1,232 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- start page-wrapper -->
+    <div class="page-wrapper">
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="vertical-centered-box">
+                <div class="content">
+                    <div class="loader-circle"></div>
+                    <div class="loader-line-mask">
+                        <div class="loader-line"></div>
+                    </div>
+                    <img src="{% static 'assets/images/preloader.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- end preloader -->
+        <!-- Start header -->
+        {% include 'include/header.html' %}
+        <!-- end of header -->
+        <section class="static-hero">
+            <div class="hero-inner">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2 class="title">{{slide.title}}</h2>
+                        <p>{{slide.description|safe}}</p>
+                        <a href="#" class="theme-btn">Коллекции</a>
+                    </div>
+                    <div class="hero-img">
+                        <div class="image">
+                            <img src="{{slide.image.url}}" alt="">
+                        </div>
+                        <div class="shape-box-on"></div>
+                        <div class="shape-box-two"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sider-img-on">
+                <img src="{% static 'assets/images/slider/img-2.jpg' %}" alt="">
+            </div>
+            <div class="sider-img-two">
+                <img src="{% static 'assets/images/slider/img-3.jpg' %}" alt="">
+            </div>
+        </section>
+
+        <!-- start of wpo-collection-section -->
+        <section class="wpo-collection-section section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-12">
+                        <div class="wpo-section-title">
+                            <h2>Ювелирные изделия</h2>
+                            <p>{{collection.main_description|safe}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="collection-wrap">
+                    <div class="row">
+                        {% for collection in collection %}
+                        <div class="col col-lg-4 col-md-6 col-12">
+                            <div class="collection-item">
+                                <div class="images">
+                                    <img src="{{collection.image.url}}" alt="">
+                                </div>
+                                <div class="content">
+                                    <h2><a href="#">{{collection.title}}</a></h2>
+                                    <p>{{collection.description|safe|truncatechars:50}}</p>
+                                    <a href="shop.html" class="theme-btn">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of wpo-collection-section -->
+
+        <!-- start of wpo-new-arrival-section -->
+        <section class="wpo-new-arrival-section">
+            <div class="left-shape"></div>
+            <div class="right-shape">
+                <svg viewBox="0 0 515 515" fill="none">
+                    <circle cx="257.5" cy="257.5" r="257" stroke="#EEDECB" />
+                    <path
+                        d="M515 257C515 223.185 508.34 190.2 495.399 158.959C482.458 127.718 463.491 99.3311 439.58 75.42C415.669 51.5089 387.282 32.5416 356.041 19.601C324.8 6.66043 291.815 -1.47812e-06 258 0V257H515Z"
+                        fill="#F4E8DA" />
+                </svg>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-12">
+                        <div class="wpo-section-title">
+                            <h2>Новое поступление</h2>
+                            <p>{{new_arrival.main_description|safe}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-arrival-wrap">
+                    <div class="row one-time">
+                        {% for new_arrival in new_arrival %}
+                        <div class="col-lg-3">
+                            <div class="prodact-item">
+                                <div class="image">
+                                    <img src="{{new_arrival.image.url}}" alt="">
+                                    
+                                </div>
+                                <div class="content">
+                                    <h2><a href="#">{{new_arrival.title}}</a></h2>
+                                    <span>{{new_arrival.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of wpo-new-arrival-section -->
+
+        <!-- start of wpo-deal-day-section -->
+        <section class="wpo-deal-day-section">
+            <div class="container">
+                <div class="deal-day-wrap">
+                    <div class="left-images">
+                        <img src="{% static 'assets/images/date.jpg' %}" alt="">
+                    </div>
+                    <div class="right-content">
+                        <div class="title">
+                            <h2>ДЕЛО ДНЯ</h2>
+                            <p>{{card.description|safe}}</p>
+                        </div>
+                        <div class="content">
+                            <div class="text">
+                                <h3>{{card.title}}</h3>
+                                <span>{{card.price}}</span>
+                                <a href="{% url 'add_to_cart' card.id %}" class="theme-btn">в корзину</a>
+                            </div>
+                            <div class="day">
+                                <h1>09</h1>
+                                <span>days left</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of wpo-deal-day-section -->
+
+        <!-- start of wpo-testimonial-section -->
+        <section class="wpo-testimonial-section section-padding">
+            <div class="container">
+                <div class="testimonial-wrap">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-4 col-12">
+                            <div class="wpo-section-title">
+                                <h2>ДОВЕРИЕ КЛИЕНТОВ</h2>
+                                <p>{{clients.description|safe}}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <div class="testimonial-slider">
+                                {% for clients in clients.clients_words.all %}
+                                <div class="item">
+                                    <div class="quote-btn">
+                                        <i class="flaticon-double-quotes"></i>
+                                        <span></span>
+                                    </div>
+                                    <p>{{clients.review}}
+                                    </p>
+                                    <h2>{{clients.name}}</h2>
+                                    <span>счастливые клиенты</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'assets/images/trastimonial.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of wpo-testimonial-section -->
+
+        <!-- start of wpo-blog-section -->
+        <section class="wpo-blog-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-12">
+                        <div class="wpo-section-title">
+                            <h2>{{news.main_title}}</h2>
+                            <p>{{news.main_description}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    {% for news in news.news_inline.all %}
+                    <div class="col col-lg-4 col-md-6 col-12">
+                        <div class="blog-card">
+                            <div class="image">
+                                <img src="{{news.image.url}}" alt="">
+                                <span>{{news.created_at}}</span>
+                            </div>
+                            <div class="content">
+                                <h2>
+                                    <a href="blog-single.html">{{news.title}}</a>
+                                </h2>
+                                <p>{{news.description}}</p>
+                                <a href="blog-single.html" class="theme-btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- end of wpo-blog-section -->
+
+        <!-- start of wpo-site-footer-section -->
+        {% include 'include/footer.html' %}
+        <!-- end of wpo-site-footer-section -->
+
+
+    </div>
+    <!-- end of page-wrapper -->
+
+    <!-- All JavaScript files
+    ================================================== -->
+{% endblock %}

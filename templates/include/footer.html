@@ -1,0 +1,85 @@
+{% load static %}
+
+<footer class="wpo-site-footer">
+    <div class="wpo-upper-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="widget about-widget">
+                        <div class="logo widget-title">
+                            <img src="{{settings.logo.url}}" alt="blog">
+                        </div>
+                        <p>{{slide.description|safe|truncatechars:100}}</p>
+                        <ul class="social">
+                            <li><a href="{{settings.facebook}}"><i class="flaticon-facebook-app-symbol"></i></a></li>
+                            <li><a href="{{settings.twitter}}"><i class="flaticon-twitter"></i></a></li>
+                            <li><a href="{{settings.instagram}}"><i class="flaticon-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="widget link-widget">
+                        <div class="widget-title">
+                            <h3>Быстрые ссылки:</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">контакты</a></li>
+                            <li><a href="#">Создать</a></li>
+                            <li><a href="#">Исследовать</a></li>
+                            <li><a href="#">Услуги</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="widget link-widget">
+                        <div class="widget-title">
+                            <h3>поддерживать:</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">Вопросы</a></li>
+                            <li><a href="#">устойчивость</a></li>
+                            <li><a href="#">руководство</a></li>
+                            <li><a href="#">Исследовать</a></li>
+                            <li><a href="#">руководство по размерам
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="widget social-widget">
+                        <div class="widget-title">
+                            <h3>Подписаться</h3>
+                        </div>
+                        <p>Всегда на связи </p>
+                        <form class="subscribe">
+                            <input class="sub" type="email" placeholder="Почта...">
+                            <button type="submit">
+                                <i class="flaticon-telegram"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </div>
+    <div class="wpo-lower-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-12">
+                    <p class="copyright"> Copyright &copy; 2023 Jowenly by <a href="index.html">wpOceans</a>.
+                        All
+                        Rights Reserved.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape">
+        <svg viewBox="0 0 260 394" fill="none">
+            <rect opacity="0.5" x="0.5" y="0.5" width="191" height="393" rx="95.5" stroke="white"
+                stroke-opacity="0.2" />
+            <rect width="260" height="140" fill="#5C623D" />
+        </svg>
+    </div>
+</footer>

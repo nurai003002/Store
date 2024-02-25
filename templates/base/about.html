@@ -1,0 +1,179 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!-- start page-wrapper -->
+    <div class="page-wrapper">
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="vertical-centered-box">
+                <div class="content">
+                    <div class="loader-circle"></div>
+                    <div class="loader-line-mask">
+                        <div class="loader-line"></div>
+                    </div>
+                    <img src="{% static 'assets/images/preloader.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- end preloader -->
+        <!-- Start header -->
+        {% include 'include/header.html' %}
+
+        <!-- start wpo-page-title -->
+        <section class="wpo-page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="wpo-breadcumb-wrap">
+                            <h2>О нас </h2>
+                            <ol>
+                                <li><a href="{% url 'index' %}">Главная</a></li>
+                                <li>О нас </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div class="left-img">
+                <img src="{% static 'assets/images/pagetitle.png' %}" alt="">
+            </div>
+            <div class="right-img">
+                <div class="shape-1">
+                    <img src="{% static 'assets/images/shape-1.png' %}" alt="">
+                </div>
+                <div class="image">
+                    <img src="{{about.main_image.url}}" alt="">
+                </div>
+                <div class="shape-2">
+                    <img src="{% static 'assets/images/shape-2.png' %}" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- end page-title -->
+
+        <!-- start of wpo-about-section-->
+        <section class="wpo-about-section section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div class="about-left-wrap">
+                            <div class="image-1">
+                                <img src="{{about.image1.url}}" alt="">
+                            </div>
+                            <div class="image-2">
+                                <img src="{{about.image2.url}}" alt="">
+                            </div>
+                            <div class="icon">
+                                <img src="{% static 'assets/images/about-icon.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="about-right-wrap">
+                            <h2 class="title">О нас </h2>
+                            <p>
+                               {{about.description|safe}}
+
+                            </p>
+                            
+                            <div class="about-btn">
+                                <a href="contact.html" class="theme-btn">Связаться</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of wpo-about-section-->
+
+        <!-- start of wpo-team-section-->
+        <section class="wpo-team-section section-padding">
+            <div class="left-shape-top"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-12">
+                        <div class="wpo-section-title">
+                            <h2>{{team.title}}</h2>
+                            <p>{{team.main_description|safe}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-wrap">
+                    <div class="row g-0">
+                        {% for team in team.team_inline.all %}
+                        <div class="col col-lg-4 col-md-6 col-12">
+                            <div class="team-card">
+                                <div class="image">
+                                    <img src="{{team.image.url}}" alt="">
+                                </div>
+                                <div class="content">
+                                    <h2><a href="team-single.html">{{team.title}}</a></h2>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor%}
+                    </div>
+                </div>
+            </div>
+            <div class="left-shape"></div>
+            <div class="right-shape">
+                <svg viewBox="0 0 515 515" fill="none">
+                    <circle cx="257.5" cy="257.5" r="257" stroke="#EEDECB" />
+                    <path
+                        d="M515 257C515 223.185 508.34 190.2 495.399 158.959C482.458 127.718 463.491 99.3311 439.58 75.42C415.669 51.5089 387.282 32.5416 356.041 19.601C324.8 6.66043 291.815 -1.47812e-06 258 0V257H515Z"
+                        fill="#F4E8DA" />
+                </svg>
+            </div>
+        </section>
+        <!-- end of wpo-team-section-->
+
+        <!-- start of wpo-testimonial-section -->
+        <section class="wpo-testimonial-section section-padding">
+            <div class="container">
+                <div class="testimonial-wrap">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-4 col-12">
+                            <div class="wpo-section-title">
+                                <h2>ДОВЕРИЕ КЛИЕНТОВ</h2>
+                                <p>{{clients.description|safe}}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <div class="testimonial-slider">
+                                {% for clients in clients.clients_words.all %}
+                                <div class="item">
+                                    <div class="quote-btn">
+                                        <i class="flaticon-double-quotes"></i>
+                                        <span></span>
+                                    </div>
+                                    <p>{{clients.review}}
+                                    </p>
+                                    <h2>{{clients.name}}</h2>
+                                    <span>счастливые клиенты</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'assets/images/trastimonial.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of wpo-testimonial-section -->
+
+        <!-- start of wpo-site-footer-section -->
+        {% include 'include/footer.html' %}
+        <!-- end of wpo-site-footer-section -->
+
+
+    </div>
+    <!-- end of page-wrapper -->
+
+    <!-- All JavaScript files
+    ================================================== -->
+{% endblock %}

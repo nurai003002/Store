@@ -1,0 +1,168 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- start page-wrapper -->
+    <div class="page-wrapper">
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="vertical-centered-box">
+                <div class="content">
+                    <div class="loader-circle"></div>
+                    <div class="loader-line-mask">
+                        <div class="loader-line"></div>
+                    </div>
+                    <img src="{% static 'assets/images/preloader.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- end preloader -->
+        <!-- Start header -->
+        {% include 'include/header.html' %}
+
+        <!-- start wpo-page-title -->
+        <section class="wpo-page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="wpo-breadcumb-wrap">
+                            <h2>Товары</h2>
+                            <ol>
+                                <li><a href="{% url 'index' %}">Главная</a></li>
+                                <li>Товары</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div class="left-img">
+                <img src="{% static 'assets/images/pagetitle.png' %}" alt="">
+            </div>
+            <div class="right-img">
+                <div class="shape-1">
+                    <img src="{% static 'assets/images/shape-1.png' %}" alt="">
+                </div>
+                <div class="image">
+                    <img src="{{about.main_image.url}}" alt="">
+                </div>
+                <div class="shape-2">
+                    <img src="{% static 'assets/images/shape-2.png' %}" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- end page-title -->
+
+        <!-- start wpo-shop-single-section -->
+        <section class="wpo-shop-single-section section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-lg-6 col-12">
+                        <div class="shop-single-slider">
+                            <div class="slider-for">
+                                <div><img src="{{goods_details.image.url}}" alt></div>
+                                <div><img src="{% static 'assets/images/shop/shop-single/2.jpg' %}" alt></div>
+                                <div><img src="{% static 'assets/images/shop/shop-single/5.jpg' %}" alt></div>
+                                <div><img src="{% static 'assets/images/shop/shop-single/4.jpg' %}" alt></div>
+                                <div><img src="{% static 'assets/images/shop/shop-single/2.jpg' %}" alt></div>
+                                <div><img src="{% static 'assets/images/shop/shop-single/3.jpg' %}" alt></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col col-lg-6 col-12">
+                        <div class="product-details">
+                            <h2>{{goods_details.title}}</h2>
+                            <div class="product-rt">
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                            <div class="price">
+                                <span class="current">{{goods_details.price}}</span>
+                            </div>
+                            <p>{{goods_details.description|safe}}</p>
+                                <div class="tg-btm">
+                                    <p><span>Категория:</span>Золотые серьги</p>
+                                </div>
+                            <div class="product-option">
+                                <form class="form">
+                                    <div class="product-row">
+                                        <div>
+                                            <input id="product-count" type="text" value="1" name="product-count">
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="theme-btn">В корзину</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> <!-- end option -->
+                        </div> <!-- end product details -->
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+                <!-- end row -->
+            </div> <!-- end of container -->
+        </section>
+        <!-- end of wpo-shop-single-section -->
+
+        <!-- start of wpo-new-arrival-section -->
+        <section class="wpo-new-arrival-section">
+            <div class="left-shape"></div>
+            <div class="right-shape">
+                <svg viewBox="0 0 515 515" fill="none">
+                    <circle cx="257.5" cy="257.5" r="257" stroke="#EEDECB" />
+                    <path
+                        d="M515 257C515 223.185 508.34 190.2 495.399 158.959C482.458 127.718 463.491 99.3311 439.58 75.42C415.669 51.5089 387.282 32.5416 356.041 19.601C324.8 6.66043 291.815 -1.47812e-06 258 0V257H515Z"
+                        fill="#F4E8DA" />
+                </svg>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-12">
+                        <div class="wpo-section-title">
+                            <h2>Новое поступление</h2>
+                            <p>{{new_arrival.main_description|safe}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-arrival-wrap">
+                    <div class="row one-time">
+                        {% for new_arrival in new_arrival %}
+                        <div class="col-lg-3">
+                            <div class="prodact-item">
+                                <div class="image">
+                                    <img src="{{new_arrival.image.url}}" alt="">
+                                    <div class="icon">
+                                        <i class="flaticon-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h2><a href="product-details.html">{{new_arrival.title}}</a></h2>
+                                    <span>{{new_arrival.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of wpo-new-arrival-section -->
+
+        <!-- start of wpo-site-footer-section -->
+        {% include 'include/footer.html' %}
+        <!-- end of wpo-site-footer-section -->
+
+
+    </div>
+    <!-- end of page-wrapper -->
+
+    <!-- All JavaScript files
+    ================================================== -->
+{% endblock %}
