@@ -80,7 +80,7 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="wpo-contact-form-area">
-                            <form method="POST" class="contact-validation-active" id="contact-form-main">
+                            <form method="POST" action="{% url 'contacts' %}" class="contact-validation-active" id="contact-form-main">
                                 {% csrf_token %}
                                 <div>
                                     <input type="text" class="form-control" name="name" id="name" placeholder="Имя*">
@@ -95,7 +95,7 @@
                                     <textarea class="form-control" name="message" id="note" placeholder="Сообщение..."></textarea>
                                 </div>
                                 <div class="submit-area">
-                                    <button type="submit" name="newslater" class="theme-btn">Отправить</button>
+                                    <button type="submit" name="submit" class="theme-btn">Отправить</button>
                                     <div id="loader">
                                         <i class="ti-reload"></i>
                                     </div>
@@ -105,8 +105,8 @@
                                 </div>
                             </form>
                         </div>
+                        
                     </div>
-                    
                     <div class="col-lg-5 col-md-8 col-12">
                         <div class="office-info">
                             <div class="office-info-item">

@@ -1,7 +1,5 @@
 from django.db import models
-
-
-
+from django.db import models
 
 class Contacts(models.Model):
     name = models.CharField(
@@ -23,6 +21,8 @@ class Contacts(models.Model):
         return self.name
     
     class Meta:
-        verbose_name = '11) Обратная связь'
-        verbose_name_plural = '11) Обратная связь'
-        
+        verbose_name = 'Обратная связь'
+        verbose_name_plural = 'Обратная связь'
+
+
+

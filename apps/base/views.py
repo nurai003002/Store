@@ -37,4 +37,3 @@ def about(request):
     return render(request, 'base/about.html', locals())
 
 
-

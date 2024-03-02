@@ -186,37 +186,7 @@
         <!-- end of wpo-testimonial-section -->
 
         <!-- start of wpo-blog-section -->
-        <section class="wpo-blog-section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-12">
-                        <div class="wpo-section-title">
-                            <h2>{{news.main_title}}</h2>
-                            <p>{{news.main_description}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-0">
-                    {% for news in news.news_inline.all %}
-                    <div class="col col-lg-4 col-md-6 col-12">
-                        <div class="blog-card">
-                            <div class="image">
-                                <img src="{{news.image.url}}" alt="">
-                                <span>{{news.created_at}}</span>
-                            </div>
-                            <div class="content">
-                                <h2>
-                                    <a href="{% url 'news_detail' news.id %}">{{news.title}}</a>
-                                </h2>
-                                <p>{{news.description}}</p>
-                                <a href="{% url 'news_detail' news.id  %}" class="theme-btn">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
+       
         <!-- end of wpo-blog-section -->
 
         <!-- start of wpo-site-footer-section -->

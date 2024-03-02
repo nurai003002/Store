@@ -84,3 +84,4 @@ class Wishlist(models.Model):
     class Meta:
         verbose_name = '2) Избранные'
         verbose_name_plural = '2) Избранные'
+

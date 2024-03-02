@@ -70,3 +70,5 @@ class TeamInline(models.Model):
 
     class Meta:
         unique_together = ('place_info', 'title')
+
+
