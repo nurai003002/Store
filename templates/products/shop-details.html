@@ -67,7 +67,6 @@
                                 <div><img src="{% static 'assets/images/shop/shop-single/2.jpg' %}" alt></div>
                                 <div><img src="{% static 'assets/images/shop/shop-single/3.jpg' %}" alt></div>
                             </div>
-                            
                         </div>
                     </div>
 
@@ -97,7 +96,7 @@
                                             <input id="product-count" type="text" value="1" name="product-count">
                                         </div>
                                         <div>
-                                            <button type="submit" class="theme-btn">В корзину</button>
+                                            <a type="submit" href="{% url 'add_to_cart' goods_details.id %}" class="theme-btn">В корзину</a>
                                         </div>
                                     </div>
                                 </form>

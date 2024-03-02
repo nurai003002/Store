@@ -22,6 +22,12 @@ class Settings(models.Model):
     instagram = models.URLField(
         verbose_name = 'Instagram URL'
     )
+    schedule = RichTextField(
+        verbose_name = 'Расписание'
+    )
+    address = RichTextField(
+        verbose_name = 'Адрес'
+    )
 
     def __str__(self):
         return self.phone
@@ -197,6 +203,7 @@ class NewsInline(models.Model):
         blank= True, null = True,
         verbose_name = "Время создания"
     )
+
     
     class Meta:
         unique_together = ('place_info', 'title')

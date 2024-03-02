@@ -26,7 +26,7 @@
                     <div class="hero-content">
                         <h2 class="title">{{slide.title}}</h2>
                         <p>{{slide.description|safe}}</p>
-                        <a href="#" class="theme-btn">Коллекции</a>
+                        <a href="{% url 'shop' %}" class="theme-btn">Коллекции</a>
                     </div>
                     <div class="hero-img">
                         <div class="image">
@@ -67,7 +67,7 @@
                                 <div class="content">
                                     <h2><a href="#">{{collection.title}}</a></h2>
                                     <p>{{collection.description|safe|truncatechars:50}}</p>
-                                    <a href="shop.html" class="theme-btn">Подробнее</a>
+                                    <a href="{% url 'shop' %}" class="theme-btn">Больше </a>
                                 </div>
                             </div>
                         </div>
@@ -206,10 +206,10 @@
                             </div>
                             <div class="content">
                                 <h2>
-                                    <a href="blog-single.html">{{news.title}}</a>
+                                    <a href="{% url 'news_detail' news.id %}">{{news.title}}</a>
                                 </h2>
                                 <p>{{news.description}}</p>
-                                <a href="blog-single.html" class="theme-btn">Подробнее</a>
+                                <a href="{% url 'news_detail' news.id  %}" class="theme-btn">Подробнее</a>
                             </div>
                         </div>
                     </div>

@@ -6,13 +6,15 @@ from apps.products.models import Cart
 def index(request):
     settings = Settings.objects.latest('id')
     slide = Slide.objects.latest('id')
-    collection = Collection.objects.all()
+    collection = Collection.objects.all()[:3]
     new_arrival = NewArrival.objects.all()
     card = Card.objects.latest('id')
     clients = Clients.objects.latest('id')
     news = News.objects.latest('id')
 
     return render(request, 'base/index.html', locals())
+
+
 
 # def add_to_cart1(request, product_id):
 #     product = get_object_or_404(Card, pk=product_id)
@@ -33,5 +35,6 @@ def about(request):
     clients = Clients.objects.latest('id')
 
     return render(request, 'base/about.html', locals())
+
 
 
