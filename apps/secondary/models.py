@@ -43,14 +43,9 @@ class Team(models.Model):
         max_length = 255,
         verbose_name = 'Заголовок'
     )
-    image = models.ImageField(
-        upload_to='team/',
-        verbose_name='фото'
-    )
     main_description = RichTextField(
         verbose_name = 'Главное описание'
     )
-    
     def __str__(self):
         return self.title
     
@@ -58,48 +53,28 @@ class Team(models.Model):
         verbose_name = '2) Команда'
         verbose_name_plural = '2) Команды'
 
-class Employee(models.Model):
-    image1 = ResizedImageField(
+
+class TeamInline(models.Model):
+    place_info = models.ForeignKey(Team, related_name='team_inline', on_delete=models.CASCADE)
+    image = ResizedImageField(
         force_format="WEBP",
         quality=100,
-        upload_to = 'employee/',
-        verbose_name='Фотография1',
-        blank =True, null=True
-    )
-    image2 = ResizedImageField(
-        force_format="WEBP",
-        quality=100,
-        upload_to = 'employee/',
-        verbose_name='Фотография2',
+        upload_to = 'image_team/',
+        verbose_name='Фото',
         blank =True, null=True
     )
     name = models.CharField(
-        max_length=255,
-        verbose_name='Имя'
+        max_length = 255,
+        verbose_name = 'Имя'
     )
-    position = models.CharField(
-        max_length=255,
-        verbose_name='должность'
+    function = RichTextField(
+        verbose_name ='Особые функциональности'
     )
-    experience = models.PositiveSmallIntegerField(
-        verbose_name='опыт'
+    descritions = RichTextField(
+        verbose_name ='Описание'
     )
-    address = models.CharField(
-        max_length=255,
-        verbose_name='адрес'
-    )
-    phone = models.CharField(
-        verbose_name='номер телефона',
-        max_length=255
-    )
-    email = models.EmailField(
-        verbose_name='почта'
-    )
-    descriptions = RichTextField(
-        verbose_name = 'описание'
-    )
-    def __str__(self):
-        return self.name
+    
+
     class Meta:
-        verbose_name = '3) Cотрудник '
-        verbose_name_plural = '3)  Сотрудники'
+        unique_together = ('place_info', 'name')
+        

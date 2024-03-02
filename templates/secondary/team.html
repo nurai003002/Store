@@ -66,14 +66,15 @@
                 </div>
                 <div class="team-wrap">
                     <div class="row g-0">
-                        {% for employee in employee %}
+                        {% for team in team.team_inline.all %}
                         <div class="col col-lg-4 col-md-6 col-12">
                             <div class="team-card">
                                 <div class="image">
-                                    <img src="{{ employee.image2.url }}" alt="">
+                                    <img src="{{team.image.url }}" alt="">
                                 </div>
                                 <div class="content">
-                                    <h2><a href="{% url 'team_detail' employee.id %}">{{employee.name}}</a></h2>
+                                    <<h2><a href="{% url 'team_detail' team.id %}">{{team.name}}</a></h2>
+
                                     <span>{{employee.position}}</span>
                                 </div>
                             </div>

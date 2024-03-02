@@ -3,6 +3,15 @@ from django.contrib import admin
 from apps.secondary import models
 # Register your models here.
 
-admin.site.register(models.Team)
-admin.site.register(models.Employee)
+class TeamAll(admin.TabularInline):
+    model = models.TeamInline
+    extra = 1
+
+class TeamFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', 'main_description')
+    list_display = ('title', "main_description")
+    search_fields = ('title', )
+    inlines = [TeamAll]
+
+admin.site.register(models.Team, TeamFilterAdmin )
 admin.site.register(models.About)

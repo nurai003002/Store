@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from apps.secondary import models
-from apps.base.models import Settings,Clients
+from apps.base.models import Settings,Clients,Slide
 # Create your views here.
 
 def about(request):
@@ -11,14 +11,18 @@ def about(request):
     clients = Clients.objects.latest('id')
 
     return render(request, 'base/about.html', locals())
-# Create your views here.
+
 def team(request):
+    slide = Slide.objects.all()
     settings = Settings.objects.latest('id')
     team = models.Team.objects.latest('id')
-    employee = models.Employee.objects.all()
+    
     return render(request, 'secondary/team.html', locals())
 
 def team_detail(request, id):
+    slide = Slide.objects.all()
     settings = Settings.objects.latest('id')
-    employee = models.Employee.objects.get(id=id)
+    team = models.Team.objects.latest('id')
+    team_details = models.Team.objects.get(id=id)
+    
     return render(request, 'secondary/team-single.html',locals())

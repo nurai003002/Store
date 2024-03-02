@@ -26,9 +26,10 @@
                 <div class="row">
                     <div class="col col-xs-12">
                         <div class="wpo-breadcumb-wrap">
-                            <h2>{{employee.name}}</h2>
+                            {%for team in team.team_inline.all%}
+                            <h2>{{ team.name }}</h2>
                             <ol>
-                                <li><a href="index.html">Главное</a></li>
+                                <li><a href="{%url 'index' %}">Главное</a></li>
                                 <li>Комманда</li>
                             </ol>
                         </div>
@@ -44,7 +45,7 @@
                     <img src="{% static 'assets/images/shape-1.png' %}" alt="">
                 </div>
                 <div class="image">
-                    <img src="{{employee.image1.url}}" alt="">
+                    <img src="{{team.image.url}}" alt="">
                 </div>
                 <div class="shape-2">
                     <img src="{% static 'assets/images/shape-2.png' %}" alt="">
@@ -60,19 +61,15 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="team-info-img">
-                                <img src="{{ employee.image2.url }}" alt="">
+                                <img src="{{ team.image.url }}" alt="">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="team-info-text">
-                                <h2>{{employee.name}}</h2>
+                                <h2>{{ team.name }}r
+                                </h2>
                                 <ul>
-                                    <li>Долножность: <span>{{employee.position}}</span></li>
-                                    {% comment %} <li>Planner Service:<span>Ceo Beximo</span></li> {% endcomment %}
-                                    <li>Опыт:<span>{{employee.experience}}</span></li>
-                                    <li>Адрес:<span>{{employee.address}}</span></li>
-                                    <li>Номер:<span>{{employee.phone}}</span></li>
-                                    <li>Почта:<span>{{employee.email}}</span></li>
+                                    {{ team.function|safe}}
                                 </ul>
                             </div>
                         </div>
@@ -82,7 +79,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="exprience-wrap">
-                               <p>{{employee.descriptions|safe}}</p>
+                               <p>{{team.descritions|safe}}</p>
                             <div class="language-area ex-wiget">
                                 <h2></h2>
                                 <ul>
@@ -121,6 +118,7 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
         <!-- .team-pg-area end -->
 
         <!-- start of wpo-site-footer-section -->
