@@ -11,8 +11,8 @@ def shop(request):
     slide = models.Slide.objects.latest('id')
     about = About.objects.latest('id')  
     goods = Goods.objects.all()
-    paginator = Paginator(goods, 3)  # Пагинация по трем товарам на странице
-    
+    paginator = Paginator(goods, 3)  
+
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'products/shop.html', locals())
@@ -35,6 +35,17 @@ def shop_details(request, id):
 
     return render(request, 'products/shop-details.html', locals())
 
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Goods, pk=product_id)
+
+    goods_details, created = Cart.objects.get_or_create(
+        title=product.title,
+        price=product.new_price,  
+        image=product.image,
+    )
+
+    return redirect('cart')
+
 def cart(request):
     about = About.objects.latest('id')  
     goods = Goods.objects.all()
@@ -52,17 +63,14 @@ def wishlist(request):
     return render(request, 'products/wishlist.html', locals())
 
 def add_to_cart(request, product_id):
-    # Получаем продукт по его ID
     product = get_object_or_404(Goods, pk=product_id)
 
-    # Создаем объект корзины с данными о продукте
     cart_item, created = Cart.objects.get_or_create(
         title=product.title,
-        price=product.new_price,  # Используем цену из поля new_price продукта
+        price=product.new_price,  
         image=product.image,
     )
 
-    # После добавления продукта в корзину перенаправляем пользователя на страницу корзины
     return redirect('cart')
 
 def remove_from_cart(request, cart_item_id):
@@ -70,23 +78,27 @@ def remove_from_cart(request, cart_item_id):
     cart_item.delete()
     return redirect('cart')
 
+def news_detail(request,id):
+    settings = models.Settings.objects.latest('id')
+    slide = models.Slide.objects.latest('id')
+    about = About.objects.latest('id')
+    news = models.News.objects.all()
+    news_details = models.News.objects.get(id=id)
+    return render(request, 'blog/blog-single.html', locals())
 
 # wishlist
-def add_to_wishlist(request, product_id):
-    # Получаем продукт по его ID
-    product = get_object_or_404(Goods, pk=product_id)
+# def add_to_wishlist(request, product_id):
+#     product = get_object_or_404(Goods, pk=product_id)
 
-    # Создаем объект корзины с данными о продукте
-    wishlist_item, created = Cart.objects.get_or_create(
-        title=product.title,
-        price=product.new_price,  # Используем цену из поля new_price продукта
-        image=product.image,
-    )
+#     wishlist_item, created = Cart.objects.get_or_create(
+#         title=product.title,
+#         price=product.new_price, 
+#         image=product.image,
+#     )
 
-    # После добавления продукта в корзину перенаправляем пользователя на страницу корзины
-    return redirect('wishlist')
+#     return redirect('wishlist')
 
-def remove_from_wishlist(request, wishlist_item_id):
-    wishlist_item = get_object_or_404(Cart, pk=wishlist_item_id)
-    wishlist_item.delete()
-    return redirect('wishlist')
+# def remove_from_wishlist(request, wishlist_item_id):
+#     wishlist_item = get_object_or_404(Cart, pk=wishlist_item_id)
+#     wishlist_item.delete()
+#     return redirect('wishlist')

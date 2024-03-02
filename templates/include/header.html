@@ -32,7 +32,7 @@
                                     <ul class="sub-menu">
                                         <li class="menu-item-has-children">
                                             <a href="{% url 'shop' %}">Магазин</a>
-                                            <ul class="sub-menu">
+                                            <ul class="sub-menu">   
                                                 <li><a href="{% url 'shop' %}">Магазин</a></li>
                                                 <li><a href="{% url 'shop_details' settings.id %}">Детально</a></li>
                                                 <li><a href="{% url 'cart' %}">Корзина</a></li>
@@ -71,7 +71,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{% url 'contacts' %}">Контакты</a></li>
                             </ul>
 
                         </div><!-- end of nav-collapse -->
