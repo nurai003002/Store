@@ -26,3 +26,9 @@ def team_detail(request, id):
     team_details = models.Team.objects.get(id=id)
     
     return render(request, 'secondary/team-single.html',locals())
+
+def faq(request):
+    slide = Slide.objects.latest('id') 
+    settings = Settings.objects.latest('id')
+    faq = models.Faq.objects.all()
+    return render(request, 'service/faq.html', locals())

@@ -78,3 +78,18 @@ class TeamInline(models.Model):
     class Meta:
         unique_together = ('place_info', 'name')
         
+class Faq(models.Model):
+    question = models.CharField(
+        verbose_name='Вопрос',
+        max_length=255
+    )
+    answer = models.TextField(
+        verbose_name='Ответ'
+    )
+  
+    def __str__(self):
+        return self.answer
+    class Meta:
+        verbose_name='Часто задаваемый вопрос',
+        verbose_name_plural='Часто задаваемые вопросы'
+    

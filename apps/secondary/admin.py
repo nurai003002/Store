@@ -13,5 +13,10 @@ class TeamFilterAdmin(admin.ModelAdmin):
     search_fields = ('title', )
     inlines = [TeamAll]
 
+
+
 admin.site.register(models.Team, TeamFilterAdmin )
 admin.site.register(models.About)
+admin.site.register(models.Faq)
+
+
