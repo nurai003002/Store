@@ -7,4 +7,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     # path('add_to_cart/<int:product_id>/', views.add_to_cart1, name='add_to_cart'),
     
+    
 ]

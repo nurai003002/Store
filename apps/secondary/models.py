@@ -46,13 +46,13 @@ class Team(models.Model):
     main_description = RichTextField(
         verbose_name = 'Главное описание'
     )
-    
     def __str__(self):
         return self.title
     
     class Meta:
         verbose_name = '2) Команда'
         verbose_name_plural = '2) Команды'
+
 
 class TeamInline(models.Model):
     place_info = models.ForeignKey(Team, related_name='team_inline', on_delete=models.CASCADE)
@@ -63,10 +63,33 @@ class TeamInline(models.Model):
         verbose_name='Фото',
         blank =True, null=True
     )
-    title = models.CharField(
+    name = models.CharField(
         max_length = 255,
-        verbose_name = 'Название'
+        verbose_name = 'Имя'
     )
+    function = RichTextField(
+        verbose_name ='Особые функциональности'
+    )
+    descritions = RichTextField(
+        verbose_name ='Описание'
+    )
+    
 
     class Meta:
-        unique_together = ('place_info', 'title')
+        unique_together = ('place_info', 'name')
+        
+class Faq(models.Model):
+    question = models.CharField(
+        verbose_name='Вопрос',
+        max_length=255
+    )
+    answer = models.TextField(
+        verbose_name='Ответ'
+    )
+  
+    def __str__(self):
+        return self.answer
+    class Meta:
+        verbose_name='Часто задаваемый вопрос',
+        verbose_name_plural='Часто задаваемые вопросы'
+    
