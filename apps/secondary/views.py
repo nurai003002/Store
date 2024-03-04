@@ -26,7 +26,17 @@ def faq(request):
     slide = Slide.objects.latest('id') 
     settings = Settings.objects.latest('id')
     faq = models.Faq.objects.all()
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        user_comment = request.POST.get('comment')
+
+        new_comment = models.Review(name=name, email=email, comment=user_comment)
+        new_comment.save()
+
+        faq.comments.add(new_comment)
     return render(request, 'service/faq.html', locals())
+
 
 def page_not_found(request):
     title = "404"

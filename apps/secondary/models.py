@@ -93,3 +93,24 @@ class Faq(models.Model):
         verbose_name='Часто задаваемый вопрос',
         verbose_name_plural='Часто задаваемые вопросы'
     
+
+
+class Review(models.Model):
+    name = models.CharField(
+        max_length = 255,
+        verbose_name = 'Имя' 
+    ) 
+    email = models.EmailField(
+        verbose_name = 'Почта'
+    )
+    comment = models.TextField(
+        verbose_name = 'Комментарий'
+    )
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+        

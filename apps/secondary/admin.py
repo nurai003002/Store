@@ -14,7 +14,7 @@ class TeamFilterAdmin(admin.ModelAdmin):
     inlines = [TeamAll]
 
 
-
+admin.site.register(models.Review)
 admin.site.register(models.Team, TeamFilterAdmin )
 admin.site.register(models.About)
 admin.site.register(models.Faq)
