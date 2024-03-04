@@ -27,3 +27,9 @@ def faq(request):
     settings = Settings.objects.latest('id')
     faq = models.Faq.objects.all()
     return render(request, 'service/faq.html', locals())
+
+def page_not_found(request):
+    title = "404"
+    slide = Slide.objects.latest('id') 
+    settings = Settings.objects.latest('id')
+    return render(request, '404.html', locals())

@@ -28,7 +28,7 @@
                             {%for team in team.team_inline.all%}
                             <h2>{{ team.name }}</h2>
                             <ol>
-                                <li><a href="{%url 'index' %}">Главное</a></li>
+                                <li><a href="{% url 'index' %}">Главное</a></li>
                                 <li>Команда</li>
                             </ol>
                         </div>
@@ -44,7 +44,7 @@
                     <img src="{% static 'assets/images/shape-1.png' %}" alt="">
                 </div>
                 <div class="image">
-                    <img src="{{team.image.url}}" alt="">
+                    <img src="{{slide.image.url}}" alt="">
                 </div>
                 <div class="shape-2">
                     <img src="{% static 'assets/images/shape-2.png' %}" alt="">
