@@ -4,8 +4,6 @@ from apps.secondary import models
 from apps.base.models import Settings,Clients,Slide
 # Create your views here.
 
-<<<<<<< HEAD
-=======
 def about(request):
     settings = Settings.objects.latest('id')
     about = models.About.objects.latest('id')
@@ -34,4 +32,3 @@ def faq(request):
     settings = Settings.objects.latest('id')
     faq = models.Faq.objects.all()
     return render(request, 'service/faq.html', locals())
->>>>>>> f98595ddc5732414ea80cd5121d3aa57446324e7
