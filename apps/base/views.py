@@ -4,6 +4,7 @@ from apps.base.models import Settings,Slide,Collection,NewArrival,Card,Clients,N
 from apps.secondary import models
 from apps.products.models import Cart
 def index(request):
+    title = "Главная"
     settings = Settings.objects.latest('id')
     slide = Slide.objects.latest('id')
     collection = Collection.objects.all()[:3]
@@ -29,6 +30,7 @@ def index(request):
 
 
 def about(request):
+    title = "О нас"
     settings = Settings.objects.latest('id')
     about = models.About.objects.latest('id')
     team = models.Team.objects.latest('id')

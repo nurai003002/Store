@@ -78,7 +78,7 @@
                             </p>
                             
                             <div class="about-btn">
-                                <a href="contact.html" class="theme-btn">Связаться</a>
+                                <a href="{% url 'contacts' %}" class="theme-btn">Связаться</a>
 
                             </div>
                         </div>
@@ -89,8 +89,7 @@
         <!-- end of wpo-about-section-->
 
         <!-- start of wpo-team-section-->
-        <section class="wpo-team-section section-padding">
-            <div class="left-shape-top"></div>
+        <section class="wpo-team-section s2 section-padding">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-12">
@@ -106,26 +105,17 @@
                         <div class="col col-lg-4 col-md-6 col-12">
                             <div class="team-card">
                                 <div class="image">
-                                    <img src="{{team.image.url}}" alt="">
+                                    <img src="{{team.image.url }}" alt="">
                                 </div>
                                 <div class="content">
-                                    <h2><a href="team-single.html">{{team.title}}</a></h2>
-                                    <span></span>
+                                    <h2><a href="{% url 'team_detail' team.id %}">{{team.name}}</a></h2>
+                                    <span>{{employee.position}}</span>
                                 </div>
                             </div>
                         </div>
-                        {% endfor%}
+                        {% endfor %}
                     </div>
                 </div>
-            </div>
-            <div class="left-shape"></div>
-            <div class="right-shape">
-                <svg viewBox="0 0 515 515" fill="none">
-                    <circle cx="257.5" cy="257.5" r="257" stroke="#EEDECB" />
-                    <path
-                        d="M515 257C515 223.185 508.34 190.2 495.399 158.959C482.458 127.718 463.491 99.3311 439.58 75.42C415.669 51.5089 387.282 32.5416 356.041 19.601C324.8 6.66043 291.815 -1.47812e-06 258 0V257H515Z"
-                        fill="#F4E8DA" />
-                </svg>
             </div>
         </section>
         <!-- end of wpo-team-section-->

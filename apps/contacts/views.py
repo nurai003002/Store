@@ -6,6 +6,7 @@ from apps.telegram_bot.views import get_text
 # Create your views here.
 
 def contacts(request):
+    title = "Контакты"
     settings = Settings.objects.latest('id')
     slide = Slide.objects.latest('id')
 

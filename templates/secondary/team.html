@@ -1,7 +1,7 @@
 {%extends 'include/homepage.html' %}
 {% load static %}
 {% block content %}
-<body>
+
 
     <!-- start page-wrapper -->
     <div class="page-wrapper">
@@ -73,8 +73,7 @@
                                     <img src="{{team.image.url }}" alt="">
                                 </div>
                                 <div class="content">
-                                    <<h2><a href="{% url 'team_detail' team.id %}">{{team.name}}</a></h2>
-
+                                    <h2><a href="{% url 'team_detail' team.id %}">{{team.name}}</a></h2>
                                     <span>{{employee.position}}</span>
                                 </div>
                             </div>

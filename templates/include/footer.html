@@ -23,29 +23,25 @@
                             <h3>Быстрые ссылки:</h3>
                         </div>
                         <ul>
-                            <li><a href="#">контакты</a></li>
-                            <li><a href="#">Создать</a></li>
-                            <li><a href="#">Исследовать</a></li>
-                            <li><a href="#">Услуги</a></li>
+                            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                            <li><a href="{% url 'about' %}">О нас</a></li>
+                            
+                            
                         </ul>
                     </div>
                 </div>
                 <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="widget link-widget">
                           <div class="widget-title">
-                            <h3>поддерживать:</h3>
+                            <h3>Поддерживать:</h3>
                         </div>
-                        <ul>/admin/secondary/employee/
-                            <li><a href="#">Вопросы</a></li>
-                            <li><a href="#">устойчивость</a></li>
-                            <li><a href="#">руководство</a></li>
-                            <li><a href="#">Исследовать</a></li>
-                            <li><a href="#">руководство по размерам
-                            </a></li>
+                        <ul>
+                            <li><a href="{% url 'faq' %}">Вопросы</a></li>
+                            <li><a href="{% url 'index' %}">Главная</a></li>
+                            <li><a href="{% url 'shop'%}">Магазин</a></li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="col col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="widget social-widget">
                         <div class="widget-title">
@@ -67,7 +63,7 @@
         <div class="container">
             <div class="row">
                 <div class="col col-xs-12">
-                    <p class="copyright"> Copyright &copy; 2023 Jowenly by <a href="index.html">wpOceans</a>.
+                    <p class="copyright"> Copyright &copy; 2024 OnlineStore by <a href="https://onecode.pythonanywhere.com/">OneCode</a>.
                         All
                         Rights Reserved.</p>
 

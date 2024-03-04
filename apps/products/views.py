@@ -7,6 +7,7 @@ from apps.products.models import Goods, Cart, Wishlist
 # Create your views here.
 
 def shop(request):
+    title = "Магазин"
     settings = models.Settings.objects.latest('id')
     slide = models.Slide.objects.latest('id')
     about = About.objects.latest('id')  
@@ -26,6 +27,7 @@ def add_to_cart(request, product_id):
 
 
 def shop_details(request, id):
+    title = "Магазин"
     settings = models.Settings.objects.latest('id')
     slide = models.Slide.objects.latest('id')
     about = About.objects.latest('id')
@@ -47,6 +49,7 @@ def add_to_cart(request, product_id):
     return redirect('cart')
 
 def cart(request):
+    title = "Корзина"
     about = About.objects.latest('id')  
     goods = Goods.objects.all()
     cart_items = Cart.objects.all()
@@ -57,6 +60,7 @@ def cart(request):
 
 
 def wishlist(request):
+
     settings = models.Settings.objects.latest('id')
     slide = models.Slide.objects.latest('id')
     wiahlist_items = Wishlist.objects.all()
@@ -79,6 +83,7 @@ def remove_from_cart(request, cart_item_id):
     return redirect('cart')
 
 def news_detail(request,id):
+    title = "Новости"
     settings = models.Settings.objects.latest('id')
     slide = models.Slide.objects.latest('id')
     about = About.objects.latest('id')
